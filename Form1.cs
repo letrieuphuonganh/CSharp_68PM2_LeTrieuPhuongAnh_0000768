@@ -26,9 +26,7 @@ namespace Quanlysinhvien
         // Small in-memory list of students for demo purposes
         private readonly List<Student> students = new List<Student>
         {
-            new Student { Email = "sv1@example.com", MSSV = "001" },
-            new Student { Email = "sv2@example.com", MSSV = "002" },
-            new Student { Email = "sv3@example.com", MSSV = "003" }
+            new Student { Email = "0000768@st.huce.edu.vn", MSSV = "0000768" }
         };
 
         private void btnLogin_Click(object sender, EventArgs e)
