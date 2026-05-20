@@ -48,22 +48,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDemoLayoutQLSV.cs">
+    <Compile Include="frm_login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDemoLayoutQLSV.Designer.cs">
-      <DependentUpon>AddDemoLayoutQLSV.cs</DependentUpon>
+    <Compile Include="frm_login.Designer.cs">
+      <DependentUpon>frm_login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="frm_main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frm_main.Designer.cs">
+      <DependentUpon>frm_main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddDemoLayoutQLSV.resx">
-      <DependentUpon>AddDemoLayoutQLSV.cs</DependentUpon>
+    <Compile Include="UCQLLH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCQLLH.Designer.cs">
+      <DependentUpon>UCQLLH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCQLSV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCQLSV.Designer.cs">
+      <DependentUpon>UCQLSV.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frm_main.resx">
+      <DependentUpon>frm_main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,6 +86,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UCQLLH.resx">
+      <DependentUpon>UCQLLH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCQLSV.resx">
+      <DependentUpon>UCQLSV.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

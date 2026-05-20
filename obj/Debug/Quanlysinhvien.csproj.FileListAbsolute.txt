@@ -2,9 +2,13 @@ E:\C##\Quanlysinhvien\Quanlysinhvien\bin\Debug\Quanlysinhvien.exe.config
 E:\C##\Quanlysinhvien\Quanlysinhvien\bin\Debug\Quanlysinhvien.exe
 E:\C##\Quanlysinhvien\Quanlysinhvien\bin\Debug\Quanlysinhvien.pdb
 E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.csproj.AssemblyReference.cache
+E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.AddDemoLayoutQLLH.resources
+E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.AddDemoLayoutQLSV.resources
+E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.frm_main.resources
 E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.Properties.Resources.resources
+E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.UCQLLH.resources
+E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.UCQLSV.resources
 E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.csproj.GenerateResource.cache
 E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.csproj.CoreCompileInputs.cache
 E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.exe
 E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.pdb
-E:\C##\Quanlysinhvien\Quanlysinhvien\obj\Debug\Quanlysinhvien.AddUIQLSV.resources
