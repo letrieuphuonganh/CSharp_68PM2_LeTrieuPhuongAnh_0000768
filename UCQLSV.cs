@@ -74,6 +74,17 @@ namespace Quanlysinhvien
             cbMaLop.DisplayMember = "tenlop";
             cbMaLop.ValueMember = "malop";
         }
+        private void ClearForm()
+        {
+            txtMaSV.Clear();
+            txtHoTen.Clear();
+            dtNgaySinh.Value = DateTime.Now;
+            cbGioiTinh.SelectedIndex = -1;
+            cbMaLop.SelectedIndex = -1;
+
+            _selectedMaSV = "";
+            txtHoTen.Focus();
+        }
         private void dgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -99,6 +110,46 @@ namespace Quanlysinhvien
                 dtNgaySinh.Value = dt;
         }
 
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(_selectedMaSV))
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần sửa!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var sv = db.tbl_sinhviens.FirstOrDefault(x => x.id == Convert.ToInt32(_selectedMaSV));
+            if (sv == null) 
+            { 
+                MessageBox.Show("Không tìm thấy sinh viên!"); 
+                return; 
+            }
+
+            sv.hoten = txtHoTen.Text.Trim();
+            sv.ngaysinh = dtNgaySinh.Value.Date;
+            sv.gioitinh = cbGioiTinh.Text;
+            sv.malop = cbMaLop.SelectedValue?.ToString()?.Trim();
+
+            try
+            {
+                db.SubmitChanges();
+                MessageBox.Show("Cập nhật thành công!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi sửa:\n" + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
     }
 }
 
