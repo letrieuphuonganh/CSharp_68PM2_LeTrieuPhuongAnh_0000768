@@ -13,6 +13,7 @@ namespace Quanlysinhvien
     public partial class UCQLSV : UserControl
     {
         databaseDataContext db = new databaseDataContext(); //khai báo để dùng cho Load để đẩy dữa liệu lên
+        string _selectedMaSV;
         public UCQLSV()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace Quanlysinhvien
             string gioiTinh = cbGioiTinh.Text;
             string ngaySinh = dtNgaySinh.Text;
             tbl_sinhvien sinhvien = new tbl_sinhvien();
-            sinhvien.id = int.Parse(mSSV);
+            sinhvien.masv = mSSV;
             sinhvien.hoten = hoTen;
             sinhvien.gioitinh = gioiTinh;
             sinhvien.ngaysinh = DateTime.Parse(ngaySinh);*/
@@ -73,5 +74,31 @@ namespace Quanlysinhvien
             cbMaLop.DisplayMember = "tenlop";
             cbMaLop.ValueMember = "malop";
         }
+        private void dgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            var row = dgvSinhVien.Rows[e.RowIndex];
+
+            _selectedMaSV = row.Cells["id"].Value.ToString();
+            txtMaSV.Text = _selectedMaSV;
+            txtHoTen.Text = row.Cells["hoten"].Value.ToString();
+            cbGioiTinh.Text = row.Cells["gioitinh"].Value.ToString();
+
+            txtMaSV.Enabled = false;
+
+            string malop = row.Cells["malop"].Value?.ToString().Trim();
+            if (!string.IsNullOrEmpty(malop))
+                cbMaLop.SelectedValue = malop;
+            else if (cbMaLop.Items.Count > 0)
+                cbMaLop.SelectedIndex = 0;
+
+            if (row.Cells["ngaysinh"].Value is DateTime dt)
+                dtNgaySinh.Value = dt;
+        }
+
     }
 }
+
