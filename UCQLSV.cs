@@ -14,6 +14,10 @@ namespace Quanlysinhvien
     {
         databaseDataContext db = new databaseDataContext(); //khai báo để dùng cho Load để đẩy dữa liệu lên
         string _selectedMaSV;
+        List<tbl_sinhvien> _allData;
+        int _currentPage = 1;
+        int _pageSize = 2;
+        int _totalPages = 1;
         public UCQLSV()
         {
             InitializeComponent();
@@ -64,8 +68,57 @@ namespace Quanlysinhvien
 
         public void LoadData()
         {
-            List<tbl_sinhvien> dSSV = db.tbl_sinhviens.ToList();
-            dgvSinhVien.DataSource = dSSV;
+            //List<tbl_sinhvien> dSSV = db.tbl_sinhviens.ToList();
+            //dgvSinhVien.DataSource = dSSV;
+            try
+            {
+                _allData = db.tbl_sinhviens
+                             .OrderBy(sv => sv.id)
+                             .ToList();
+                ApplyPaging();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối CSDL:\n" + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ApplyPaging()
+        {
+            _totalPages = Math.Max(1, (int)Math.Ceiling(_allData.Count / (double)_pageSize));
+            if (_currentPage < 1) _currentPage = 1;
+            if (_currentPage > _totalPages) _currentPage = _totalPages;
+
+            dgvSinhVien.DataSource = _allData
+                .Skip((_currentPage - 1) * _pageSize)
+                .Take(_pageSize)
+                .Select(sv => new
+                {
+                    sv.id,
+                    sv.hoten,
+                    sv.gioitinh,
+                    sv.ngaysinh,
+                    sv.malop
+                })
+                .ToList();
+
+            lb_trang.Text = _currentPage + "/" + _totalPages;
+            lb_soBanGhi.Text = _allData.Count + " bản ghi";
+        }
+
+        private void LoadSinhVienTheoTu(string tuKhoa)
+        {
+            string tk = tuKhoa.Trim();
+            _allData = db.tbl_sinhviens
+                          .Where(sv =>
+                              sv.id.ToString().Contains(tk) ||
+                              sv.hoten.Contains(tk) ||
+                              sv.malop.Contains(tk))
+                          .OrderBy(sv => sv.id)
+                          .ToList();
+            _currentPage = 1;
+            ApplyPaging();
         }
         public void LoadDSLH4CBX() //load dữ liệu cho combobox
         {
@@ -74,6 +127,7 @@ namespace Quanlysinhvien
             cbMaLop.DisplayMember = "tenlop";
             cbMaLop.ValueMember = "malop";
         }
+
         private void ClearForm()
         {
             txtMaSV.Clear();
@@ -85,6 +139,7 @@ namespace Quanlysinhvien
             _selectedMaSV = "";
             txtHoTen.Focus();
         }
+
         private void dgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -182,6 +237,35 @@ namespace Quanlysinhvien
                 MessageBox.Show("Lỗi khi xóa:\n" + ex.Message, "Lỗi",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_trangDau_Click(object sender, EventArgs e)
+        {
+            _currentPage = 1;
+            ApplyPaging();
+        }
+
+        private void btn_trangTruoc_Click(object sender, EventArgs e)
+        {
+            _currentPage--;
+            ApplyPaging();
+        }
+
+        private void btn_trangSau_Click(object sender, EventArgs e)
+        {
+            _currentPage++;
+            ApplyPaging();
+        }
+
+        private void btn_trangCuoi_Click(object sender, EventArgs e)
+        {
+            _currentPage = _totalPages;
+            ApplyPaging();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            LoadSinhVienTheoTu(txtTimKiem.Text);
         }
     }
 }

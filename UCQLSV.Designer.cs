@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
@@ -53,12 +53,14 @@
             this.colGioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_trangDau = new System.Windows.Forms.Button();
+            this.btn_trangSau = new System.Windows.Forms.Button();
+            this.btn_trangTruoc = new System.Windows.Forms.Button();
+            this.lb_trang = new System.Windows.Forms.Label();
+            this.btn_trangCuoi = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lb_soBanGhi = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).BeginInit();
             this.panel1.SuspendLayout();
@@ -141,6 +143,7 @@
             this.btnTim.TabIndex = 21;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = false;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // label2
             // 
@@ -278,14 +281,14 @@
             this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSinhVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvSinhVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSinhVien.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSinhVien.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSinhVien.EnableHeadersVisualStyles = false;
             this.dgvSinhVien.Location = new System.Drawing.Point(531, 87);
             this.dgvSinhVien.Margin = new System.Windows.Forms.Padding(4);
@@ -352,74 +355,100 @@
             this.colLop.ReadOnly = true;
             this.colLop.Width = 125;
             // 
-            // button1
+            // btn_trangDau
             // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button1.Location = new System.Drawing.Point(27, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 62);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "<<";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_trangDau.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btn_trangDau.Location = new System.Drawing.Point(27, 0);
+            this.btn_trangDau.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_trangDau.Name = "btn_trangDau";
+            this.btn_trangDau.Size = new System.Drawing.Size(100, 62);
+            this.btn_trangDau.TabIndex = 0;
+            this.btn_trangDau.Text = "<<";
+            this.btn_trangDau.UseVisualStyleBackColor = true;
+            this.btn_trangDau.Click += new System.EventHandler(this.btn_trangDau_Click);
             // 
-            // button2
+            // btn_trangSau
             // 
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button2.Location = new System.Drawing.Point(467, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 62);
-            this.button2.TabIndex = 1;
-            this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_trangSau.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btn_trangSau.Location = new System.Drawing.Point(467, 0);
+            this.btn_trangSau.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_trangSau.Name = "btn_trangSau";
+            this.btn_trangSau.Size = new System.Drawing.Size(100, 62);
+            this.btn_trangSau.TabIndex = 1;
+            this.btn_trangSau.Text = ">";
+            this.btn_trangSau.UseVisualStyleBackColor = true;
+            this.btn_trangSau.Click += new System.EventHandler(this.btn_trangSau_Click);
             // 
-            // button4
+            // btn_trangTruoc
             // 
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button4.Location = new System.Drawing.Point(127, 0);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 62);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "<";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_trangTruoc.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btn_trangTruoc.Location = new System.Drawing.Point(127, 0);
+            this.btn_trangTruoc.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_trangTruoc.Name = "btn_trangTruoc";
+            this.btn_trangTruoc.Size = new System.Drawing.Size(100, 62);
+            this.btn_trangTruoc.TabIndex = 1;
+            this.btn_trangTruoc.Text = "<";
+            this.btn_trangTruoc.UseVisualStyleBackColor = true;
+            this.btn_trangTruoc.Click += new System.EventHandler(this.btn_trangTruoc_Click);
             // 
-            // label7
+            // lb_trang
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(279, 23);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 16);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Trang 1/1   |   3 bản ghi";
+            this.lb_trang.AutoSize = true;
+            this.lb_trang.Location = new System.Drawing.Point(279, 23);
+            this.lb_trang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_trang.Name = "lb_trang";
+            this.lb_trang.Size = new System.Drawing.Size(64, 16);
+            this.lb_trang.TabIndex = 11;
+            this.lb_trang.Text = "Trang 1/1";
             // 
-            // button3
+            // btn_trangCuoi
             // 
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button3.Location = new System.Drawing.Point(567, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 62);
-            this.button3.TabIndex = 1;
-            this.button3.Text = ">>";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_trangCuoi.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btn_trangCuoi.Location = new System.Drawing.Point(567, 0);
+            this.btn_trangCuoi.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_trangCuoi.Name = "btn_trangCuoi";
+            this.btn_trangCuoi.Size = new System.Drawing.Size(100, 62);
+            this.btn_trangCuoi.TabIndex = 1;
+            this.btn_trangCuoi.Text = ">>";
+            this.btn_trangCuoi.UseVisualStyleBackColor = true;
+            this.btn_trangCuoi.Click += new System.EventHandler(this.btn_trangCuoi_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.lb_soBanGhi);
+            this.panel1.Controls.Add(this.btn_trangCuoi);
+            this.panel1.Controls.Add(this.lb_trang);
+            this.panel1.Controls.Add(this.btn_trangTruoc);
+            this.panel1.Controls.Add(this.btn_trangSau);
+            this.panel1.Controls.Add(this.btn_trangDau);
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Location = new System.Drawing.Point(531, 634);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(689, 62);
             this.panel1.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(351, 23);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(10, 16);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "|";
+            // 
+            // lb_soBanGhi
+            // 
+            this.lb_soBanGhi.AutoSize = true;
+            this.lb_soBanGhi.Location = new System.Drawing.Point(369, 23);
+            this.lb_soBanGhi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_soBanGhi.Name = "lb_soBanGhi";
+            this.lb_soBanGhi.Size = new System.Drawing.Size(61, 16);
+            this.lb_soBanGhi.TabIndex = 12;
+            this.lb_soBanGhi.Text = "3 bản ghi";
             // 
             // UCQLSV
             // 
@@ -474,11 +503,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colGioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLop;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_trangDau;
+        private System.Windows.Forms.Button btn_trangSau;
+        private System.Windows.Forms.Button btn_trangTruoc;
+        private System.Windows.Forms.Label lb_trang;
+        private System.Windows.Forms.Button btn_trangCuoi;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lb_soBanGhi;
+        private System.Windows.Forms.Label label9;
     }
 }
